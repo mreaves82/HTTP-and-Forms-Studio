@@ -7,15 +7,19 @@
   <script>
     // TODO: create a handler
     function setSearchEngine() {
-      console.log("check");
+      console.log("search");
     }
 
     window.addEventListener("load", function () {
       // TODO: register the handler
-      let engineChoice = document.querySelector("input[name=radio]:checked");
-      console.log(engineChoice.value);
+
       let form = document.getElementById("searchForm");
-      form.addEventListener("submit", setSearchEngine());
+      form.addEventListener("submit", function () {
+        let engineChoice = document.querySelector("input[name=engine]:checked")
+          .value;
+        console.log(engineChoice);
+        return setSearchEngine();
+      });
     });
   </script>
 </head>
@@ -26,12 +30,7 @@
     <div></div>
     <label><input type="radio" name="engine" value="google" />Google</label>
     <label
-      ><input
-        type="radio"
-        name="engine"
-        value="duckDuckGo"
-        checked
-      />DuckDuckGo</label
+      ><input type="radio" name="engine" value="duckDuckGo" />DuckDuckGo</label
     >
     <label><input type="radio" name="engine" value="bing" />Bing</label>
     <label><input type="radio" name="engine" value="ask" />Ask</label>
