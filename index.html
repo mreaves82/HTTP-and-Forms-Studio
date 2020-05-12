@@ -13,15 +13,17 @@
     };
     // TODO: create a handler
     function setSearchEngine() {
-      let engineChoice = document.querySelector("input[name=engine]:checked")
-        .value;
-      console.log(engineChoice);
+      let engineChoice = document.querySelector("input[name=engine]:checked");
+
+      console.log(engineChoice.value);
+
     }
 
-    window.addEventListener("load", function () {
+    window.addEventListener("load", function() {
       // TODO: register the handler
       let form = document.getElementById("searchForm");
       form.addEventListener("submit", setSearchEngine());
+
     });
   </script>
 </head>
@@ -31,9 +33,7 @@
     <label><input type="text" name="q" /></label>
     <div></div>
     <label><input type="radio" name="engine" value="google" />Google</label>
-    <label
-      ><input type="radio" name="engine" value="duckDuckGo" />DuckDuckGo</label
-    >
+    <label><input type="radio" name="engine" value="duckDuckGo" />DuckDuckGo</label>
     <label><input type="radio" name="engine" value="bing" />Bing</label>
     <label><input type="radio" name="engine" value="ask" />Ask</label>
     <button>Go!</button>
