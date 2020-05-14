@@ -5,24 +5,41 @@
   <meta charset="utf-8" />
 
   <script>
-    let actions = {
-      google: "https://www.google.com",
-      bing: "https://www.bing.com",
-      duckDuckGo: "https://www.duckduckgo.com",
-      ask: "https://www.ask.com",
-    };
     // TODO: create a handler
     function setSearchEngine() {
+
+      alert('it worked');
+      let actions = {
+        "google": "https://www.google.com",
+        "bing": "https://www.bing.com",
+        "duckDuckGo": "https://www.duckduckgo.com",
+        "ask": "https://www.ask.com",
+      };
+      let form = document.getElementById('searchForm');
+
       let engineChoice = document.querySelector("input[name=engine]:checked");
 
-      console.log(engineChoice.value);
+      if (engineChoice === null) {
+        event.preventDefault();
+        alert('Please select a search engine.');
+      }
+
+      let action = actions[engineChoice.value];
+      if (action === undefined) {
+        alert('Please select a valid choice');
+      }
+      form.setAttribute('action', action);
 
     }
 
     window.addEventListener("load", function() {
       // TODO: register the handler
       let form = document.getElementById("searchForm");
-      form.addEventListener("submit", setSearchEngine());
+      form.addEventListener("submit", setSearchEngine);
+      //  function() {
+      // let engineChoice = document.querySelector("input[name=engine]:checked");
+      // console.log(engineChoice.value);
+      // });
 
     });
   </script>
